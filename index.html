@@ -9,15 +9,100 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
 
+        
         :root {
-            --primary-blue: #0071e3;
-            --tech-purple: #8b5cf6;
-            --tech-cyan: #06b6d4;
-            --tech-green: #10b981;
-            --dark-bg: #0f172a;
-            --gradient-primary: linear-gradient(135deg, #0071e3 0%, #8b5cf6 100%);
-            --gradient-tech: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 50%, #10b981 100%);
+            --electric-blue: #00D4FF;
+            --neon-green: #39FF14;
+            --amber-orange: #FF6B35;
+            --hot-pink: #FF0080;
+            --tech-gray: #1a1a2e;
+            --cyber-purple: #16213e;
+            --matrix-green: #00ff41;
+            --plasma-blue: #0066ff;
         }
+
+        .hero {
+            background: linear-gradient(135deg, var(--tech-gray) 0%, var(--cyber-purple) 50%, var(--electric-blue) 100%);
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(57, 255, 20, 0.3) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0,10 L20,10 M10,0 L10,20" stroke="%23ffffff" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+        }
+
+        .service-category {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 24px;
+        }
+
+        .service-category:hover {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 1) 0%, rgba(22, 33, 62, 1) 100%);
+            border-color: var(--electric-blue);
+            box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+        }
+
+        .category-icon {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, var(--neon-green) 100%);
+            box-shadow: 0 4px 16px rgba(0, 212, 255, 0.4);
+        }
+
+        .service-item {
+            background: rgba(0, 212, 255, 0.1);
+            border-left: 3px solid var(--electric-blue);
+        }
+
+        .service-item:hover {
+            background: rgba(57, 255, 20, 0.1);
+            border-left-color: var(--neon-green);
+            box-shadow: 0 4px 12px rgba(57, 255, 20, 0.2);
+        }
+
+        .service-dot {
+            background: linear-gradient(45deg, var(--amber-orange), var(--hot-pink));
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .section-header h2 {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, var(--neon-green) 50%, var(--amber-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links a:hover {
+            background: linear-gradient(135deg, var(--electric-blue), var(--hot-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-button, .btn-primary {
+            background: linear-gradient(135deg, var(--electric-blue) 0%, var(--neon-green) 50%, var(--hot-pink) 100%);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4); }
+            to { box-shadow: 0 4px 30px rgba(57, 255, 20, 0.6); }
+        }
+
 
         .hero {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -267,6 +352,51 @@
             margin: 0 auto;
         }
 
+
+        
+        .services-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .service-category {
+            padding: 20px 16px;
+            border-radius: 12px;
+        }
+
+        .category-header {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+        }
+
+        .category-icon {
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
+        }
+
+        .category-title {
+            font-size: 18px;
+        }
+
+        .services-list {
+            gap: 8px;
+        }
+
+        .service-item {
+            padding: 8px 10px;
+            border-radius: 6px;
+        }
+
+        .service-name {
+            font-size: 13px;
+        }
+
+        .service-description {
+            font-size: 11px;
+        }
 
         .services-categories {
             display: grid;
@@ -647,6 +777,51 @@
             }
 
     
+        
+        .services-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .service-category {
+            padding: 20px 16px;
+            border-radius: 12px;
+        }
+
+        .category-header {
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+        }
+
+        .category-icon {
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
+        }
+
+        .category-title {
+            font-size: 18px;
+        }
+
+        .services-list {
+            gap: 8px;
+        }
+
+        .service-item {
+            padding: 8px 10px;
+            border-radius: 6px;
+        }
+
+        .service-name {
+            font-size: 13px;
+        }
+
+        .service-description {
+            font-size: 11px;
+        }
+
         .services-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
