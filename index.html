@@ -4,121 +4,749 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brighton Computer Services - Expert IT Support</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background: #f4f4f4; }
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px; }
-        header { background: #1e40af; color: white; padding: 20px 0; }
-        .logo { font-size: 24px; font-weight: bold; }
-        .hero { text-align: center; padding: 100px 0; background: #1e3a8a; color: white; }
-        h1 { font-size: 2.5em; margin-bottom: 20px; }
-        .button { 
-            display: inline-block; 
-            background: #3b82f6; 
-            color: white; 
-            padding: 12px 25px; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            margin-top: 20px; 
-            font-weight: bold;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .button:hover { background: #2563eb; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1d1d1f;
+            background: #fbfbfd;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "🛡️";
+            font-size: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1d1d1f;
+            font-weight: 400;
+            font-size: 12px;
+            letter-spacing: 0.011em;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        .cta-button {
+            background: #0071e3;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.011em;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background: #0077ed;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 100%);
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 600;
+            line-height: 1.07;
+            letter-spacing: -0.005em;
+            margin-bottom: 16px;
+            color: #1d1d1f;
+        }
+
+        .hero-subtitle {
+            font-size: 21px;
+            color: #86868b;
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: 0.011em;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #0071e3;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: #0077ed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0071e3;
+            padding: 12px 24px;
+            border: 1px solid #0071e3;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: #0071e3;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.08;
+            letter-spacing: -0.005em;
+            margin-bottom: 16px;
+            color: #1d1d1f;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: #86868b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: #fbfbfd;
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+            border-radius: 50%;
+            font-size: 32px;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1d1d1f;
+        }
+
+        .service-card p {
+            color: #86868b;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: #f5f5f7;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.08;
+            margin-bottom: 24px;
+            color: #1d1d1f;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #86868b;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .about-features li {
+            font-size: 16px;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .about-features li::before {
+            content: "✓";
+            color: #0071e3;
+            font-weight: 600;
+        }
+
+        .about-image {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            color: #1d1d1f;
+        }
+
+        .contact-details {
+            space-y: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            background: #0071e3;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+
+        .contact-text p {
+            color: #86868b;
+            line-height: 1.5;
+        }
+
+        .contact-form {
+            background: #f5f5f7;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            color: #1d1d1f;
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0071e3;
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: #0071e3;
+            color: white;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background: #0077ed;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: #1d1d1f;
+            color: #86868b;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #86868b;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: #86868b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 12px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-header h2,
+            .about-text h2,
+            .contact-info h2 {
+                font-size: 36px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card,
+        .about-content,
+        .contact-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
+        .service-card:nth-child(5) { animation-delay: 0.4s; }
+        .service-card:nth-child(6) { animation-delay: 0.5s; }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">Brighton Computer Services</div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Brighton Computer Services</a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact" class="cta-button">Get Help</a></li>
+            </ul>
         </div>
-    </header>
-    
+    </nav>
+
+    <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="container hero-content">
             <h1>Expert Computer Services in Brighton</h1>
-            <p>Cybersecurity-focused solutions for all your tech needs</p>
-            <a href="#contact" class="button">Get Help Now</a>
+            <p class="hero-subtitle">Professional IT support with cybersecurity expertise. Fast, reliable solutions for all your technology needs.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">
+                    Get Help Now
+                    <span style="margin-left: 4px;">→</span>
+                </a>
+                <a href="#about" class="btn-secondary">
+                    Learn More
+                    <span style="margin-left: 4px;">↓</span>
+                </a>
+            </div>
         </div>
     </section>
-    
-    <div class="container" style="padding: 50px 0;">
-        <h2>Our Services</h2>
-        <p>Professional IT support and computer repair services in Brighton.</p>
-    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive IT Solutions</h2>
+                <p>From cybersecurity to hardware repairs, we provide complete technology support for homes and businesses in Brighton.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔒</div>
+                    <h3>Cybersecurity</h3>
+                    <p>Protect your devices from viruses, malware, and online threats with expert security solutions and safe browsing guidance.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💻</div>
+                    <h3>Computer Repairs</h3>
+                    <p>Fast and reliable repairs for all makes and models of computers and laptops. Hardware and software solutions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💾</div>
+                    <h3>Data Recovery</h3>
+                    <p>Recover lost or deleted files from hard drives, SSDs, and other storage devices with professional data recovery services.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📶</div>
+                    <h3>Wi-Fi & Networking</h3>
+                    <p>Fix connectivity issues and optimize your home or office network for better performance and reliability.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3>Hardware Upgrades</h3>
+                    <p>Boost your computer's performance with RAM, SSD upgrades, and other hardware improvements tailored to your needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎧</div>
+                    <h3>Tech Support</h3>
+                    <p>Expert help with software installation, setup, troubleshooting, and general technology guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Professional IT Support You Can Trust</h2>
+                    <p>Hi, I'm a Brighton-based IT specialist with a degree in Cybersecurity, offering professional and reliable tech services to home users and small businesses.</p>
+                    <p>With years of experience in the industry, I understand how frustrating technology issues can be. That's why I'm committed to providing fast, friendly, and affordable solutions to get you back up and running in no time.</p>
+
+                    <ul class="about-features">
+                        <li>Degree-qualified in Cybersecurity</li>
+                        <li>Local Brighton service – independent, not a chain</li>
+                        <li>Patient, friendly, and clear explanations (no jargon)</li>
+                        <li>"No Fix, No Fee" – risk-free service guarantee</li>
+                        <li>Transparent pricing with no hidden costs</li>
+                        <li>Quick response times for urgent issues</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Professional computer repair and IT support">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Ready to solve your technology challenges? Contact me today for professional IT support in Brighton.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h3>Service Area</h3>
+                                <p>Serving Brighton & surrounding areas</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">💬</div>
+                            <div class="contact-text">
+                                <h3>Contact Method</h3>
+                                <p>Message me on Facebook for a free consultation or quick advice</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🛡️</div>
+                            <div class="contact-text">
+                                <h3>Our Promise</h3>
+                                <p>Whether you need your computer fixed, your Wi-Fi running smoothly, or peace of mind that your home is safe online — I'm here to help.</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div class="contact-text">
+                                <h3>Business Hours</h3>
+                                <p>Monday - Friday: 9am - 6pm<br>Weekends: By appointment</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/your-form-id" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone (optional)</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="computer-repair">Computer Repair</option>
+                                <option value="cybersecurity">Cybersecurity</option>
+                                <option value="data-recovery">Data Recovery</option>
+                                <option value="networking">Wi-Fi & Networking</option>
+                                <option value="hardware-upgrade">Hardware Upgrade</option>
+                                <option value="tech-support">General Tech Support</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Describe your issue or requirements..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo" style="color: white; margin-bottom: 16px;">Brighton Computer Services</div>
+                <ul class="footer-links">
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <p class="copyright">© 2024 Brighton Computer Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
-      <div class="service-card">
-        <i class="fas fa-laptop-medical"></i>
-        <h3>Computer Repairs</h3>
-        <p>Fast and reliable repairs for all makes and models of computers and laptops.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-wifi"></i>
-        <h3>Networking</h3>
-        <p>Wi-Fi setup, troubleshooting, and optimization for your home or office.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-database"></i>
-        <h3>Data Recovery</h3>
-        <p>Professional data recovery services for lost or damaged files.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-network-wired"></i>
-        <h3>Cabling</h3>
-        <p>Professional installation of telephone and broadband cabling.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-headset"></i>
-        <h3>Tech Support</h3>
-        <p>Friendly, jargon-free help with all your technology needs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="about">
-  <div class="container">
-    <div class="about-content">
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>Hi, I'm a Brighton-based IT specialist with a degree in Cybersecurity. I provide professional, reliable computer services with a personal touch.</p>
-        <p>What sets me apart:</p>
-        <ul>
-          <li><i class="fas fa-check"></i> Degree-qualified in Cybersecurity</li>
-          <li><i class="fas fa-check"></i> No fix, no fee guarantee</li>
-          <li><i class="fas fa-check"></i> Clear, jargon-free explanations</li>
-        </ul>
-      </div>
-      <div class="about-image">
-        <i class="fas fa-laptop-code"></i>
-        </div>
-      </div>
-      <div class="contact-form">
-        <form action="https://formspree.io/f/your-form-id" method="POST">
-          <div class="form-group">
-            <input type="text" name="name" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="email" placeholder="Your Email" required>
-          </div>
-          <div class="form-group">
-            <input type="tel" name="phone" placeholder="Your Phone Number">
-          </div>
-          <div class="form-group">
-            <select name="service" required>
-              <option value="" disabled selected>Select a Service</option>
-              <option value="repairs">Computer Repairs</option>
-              <option value="security">Cybersecurity</option>
-              <option value="networking">Networking</option>
-              <option value="data-recovery">Data Recovery</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea name="message" placeholder="How can I help you?" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="button primary">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
