@@ -1,8 +1,8 @@
 # Site settings
 title: Brighton Computer Services
 description: Professional computer repair and cybersecurity services in Brighton. Expert help for all your tech needs.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://j4mb0t.github.io/computer_services_githubpages" # the base hostname & protocol for your site
+baseurl: "/computer_services_githubpages" # the subpath of your site
+url: "https://j4mb0t.github.io" # the base hostname & protocol for your site
 
 # Build settings
 theme: minima
