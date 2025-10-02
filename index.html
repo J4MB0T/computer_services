@@ -732,20 +732,233 @@
         .footer-links a:hover {
             color: white;
         }
-
-        .copyright {
-            font-size: 14px;
-            color: #86868b;
+        
+        /* About Section Styles */
+        .about {
+            padding: 100px 0;
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
         }
-
-        /* Responsive Design */
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.1) 0%, transparent 30%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circuit" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M0,20 L40,20 M20,0 L20,40" stroke="%23ffffff" stroke-width="0.5" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23circuit)"/></svg>');
+            z-index: 0;
+        }
+        
+        .about .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+        
+        .about h3 {
+            color: var(--electric-blue);
+            margin: 2.2rem 0 1.1rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .about p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.3rem;
+            color: #e0e0e0;
+        }
+        
+        .about ul {
+            margin: 1.2rem 0;
+            padding-left: 1.8rem;
+        }
+        
+        .about li {
+            font-size: 1.02rem;
+            line-height: 1.6;
+            margin-bottom: 0.7rem;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(26, 26, 46, 0.7);
+            padding: 30px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-text {
+            font-size: 1.05rem;
+        }
+        
+        .about-text li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--neon-green);
+            font-weight: bold;
+        }
+        
+        .about-image {
+            flex: 0 0 350px;
+            position: relative;
+        }
+        
+        .photo-placeholder {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(57, 255, 20, 0.1));
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            color: var(--electric-blue);
+            font-style: italic;
+            border: 2px dashed rgba(0, 212, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .photo-placeholder:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+        }
+        
+        .certifications {
+            background: rgba(26, 26, 46, 0.8);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .certifications h4 {
+            color: var(--electric-blue);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .certifications h4:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-green));
+        }
+        
+        .certifications ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .certifications li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .certifications li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Reset and Base Styles */
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .about-text {
+                margin-bottom: 40px;
+            }
+            
+            .about h2 {
+                font-size: 2rem;
+                text-align: left;
+                margin-bottom: 1.2rem;
+            }
+            
+            .about h3 {
+                font-size: 1.3rem;
+                margin: 1.8rem 0 1rem;
+            }
+            
+            .about p, 
+            .about li {
+                font-size: 1.03rem;
+                line-height: 1.65;
+            }
+        }
+        
         @media (max-width: 768px) {
             .nav-container {
                 padding: 12px 20px;
             }
-
+            
             .nav-links {
                 display: none;
+            }
+            
+            .about {
+                padding: 60px 0;
+            }
+            
+            .about h2 {
+                font-size: 1.8rem;
+                text-align: left;
+            }
+            
+            .about-text {
+                padding: 20px;
+            }
+            
+            .photo-placeholder {
+                height: 250px;
+            }
+            
+            .certifications {
+                padding: 20px;
             }
 
             .hero h1 {
@@ -945,10 +1158,9 @@
         <div class="nav-container">
             <a href="#" class="logo">Jam IT Support</a>
             <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact" class="cta-button">Get Support</a></li>
+                <li><a href="#services" onclick="smoothScroll('#services'); return false;">Services</a></li>
+                <li><a href="#contact" onclick="smoothScroll('#contact'); return false;">Contact</a></li>
+                <li><a href="#contact" class="cta-button" onclick="smoothScroll('#contact'); return false;">Get Support</a></li>
             </ul>
         </div>
     </nav>
@@ -958,15 +1170,50 @@
         <div class="container hero-content">
             <h1>Expert IT Support Services</h1>
             <p class="hero-subtitle">Professional IT solutions for homes and businesses. From cybersecurity to cloud services, I've got your technology needs covered.</p>
-            <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">
-                    Get Support Now
-                    <span style="margin-left: 4px;">→</span>
-                </a>
-                <a href="#services" class="btn-secondary">
-                    View Services
-                    <span style="margin-left: 4px;">↓</span>
-                </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm James, a passionate cybersecurity professional with a strong technical background in telecommunications and IT infrastructure. With years of hands-on experience in the industry, I've made it my mission to provide top-notch IT support services to homes and businesses in our local community.</p>
+                    
+                    <h3>My Journey in Tech</h3>
+                    <p>My journey in technology began at BT, where I worked as a Telephone, TV, and Broadband Engineer. This role gave me invaluable experience in:</p>
+                    <ul>
+                        <li>Installing and maintaining complex telecommunications systems</li>
+                        <li>Troubleshooting network and connectivity issues</li>
+                        <li>Delivering exceptional customer service in high-pressure situations</li>
+                        <li>Working with a wide range of networking equipment and technologies</li>
+                    </ul>
+                    
+                    <h3>Cybersecurity Expertise</h3>
+                    <p>Driven by my passion for cybersecurity, I pursued and earned a degree in the field, equipping me with:</p>
+                    <ul>
+                        <li>In-depth knowledge of network security principles and best practices</li>
+                        <li>Expertise in threat detection and prevention</li>
+                        <li>Experience with security auditing and compliance</li>
+                        <li>Understanding of ethical hacking techniques</li>
+                    </ul>
+                    
+                    <h3>Why Choose My Services?</h3>
+                    <p>What sets me apart is my unique combination of telecommunications expertise and cybersecurity knowledge. I understand both the physical and digital aspects of IT infrastructure, allowing me to provide comprehensive solutions that are not only effective but also secure by design.</p>
+                    
+                    <p>I take pride in offering personalised, reliable IT support with the professionalism you'd expect from a large company, combined with the personal touch of a local service provider. Whether you're a home user needing basic tech support or a business looking to secure your digital assets, I'm here to help.</p>
+                </div>
+                    <div class="certifications">
+                        <h4>Certifications & Qualifications</h4>
+                        <ul>
+                            <li>BSc in Cybersecurity</li>
+                            <li>BT Engineering Certification</li>
+                            <li>Network+ Certified</li>
+                            <li>Certified Ethical Hacker</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1092,6 +1339,25 @@
                     <div class="service-icon">📊</div>
                     <h3>24/7 Monitoring</h3>
                     <p>Proactive system health monitoring and maintenance.</p>
+                </div>
+
+                <!-- Infrastructure Services -->
+                <div class="service-card">
+                    <div class="service-icon">🔌</div>
+                    <h3>Structured Cabling</h3>
+                    <p>Professional cable management and installation for a clean, organized, and efficient network infrastructure.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📞</div>
+                    <h3>Telephone & Broadband</h3>
+                    <p>Professional installation and configuration of telephone and broadband services for optimal performance.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Home office Moves & Relocations</h3>
+                    <p>Complete IT relocation services including equipment moves, network setup, and system reconfiguration.</p>
                 </div>
 
             </div>
@@ -1246,7 +1512,12 @@
             compliance: false,  // IT Compliance (enable for business clients)
             monitoring: true,   // 24/7 Monitoring
             virtualcio: false,  // Virtual CIO (enable for larger clients)
-            automation: false   // Process Automation (enable when needed)
+            automation: false,  // Process Automation (enable when needed)
+            
+            // Infrastructure Services
+            cabling: true,      // Structured Cabling
+            telecom: true,      // Telephone & Broadband
+            relocation: true    // Office Moves & Relocations
         };
 
         // Auto-hide disabled services on page load
@@ -1264,48 +1535,47 @@
     </script>
 
     <script>
-        // Wait for the DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scroll function
-            function smoothScroll(target) {
-                const element = document.querySelector(target);
-                if (element) {
-                    const headerOffset = 80; // Height of your fixed header
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        // Global smooth scroll function
+        function smoothScroll(targetId) {
+            const targetElement = document.querySelector(targetId);
+            if (!targetElement) return;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            }
+            // Get header height for offset
+            const header = document.querySelector('nav');
+            const headerHeight = header ? header.offsetHeight : 80;
+            
+            // Calculate position
+            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - headerHeight - 20;
 
-            // Handle all anchor clicks
-            document.addEventListener('click', function(e) {
-                // Handle navigation links and buttons with hash href
-                const link = e.target.closest('a[href^="#"]');
-                if (link) {
-                    e.preventDefault();
-                    const target = link.getAttribute('href');
-                    if (target !== '#') {
-                        smoothScroll(target);
-                    }
-                    return; // Exit after handling the click
-                }
-                
-                // Handle buttons with specific classes
-                const button = e.target.closest('.btn-primary, .btn-secondary, .cta-button');
-                if (button) {
-                    e.preventDefault();
-                    const target = button.getAttribute('href');
-                    if (target && target.startsWith('#')) {
-                        smoothScroll(target);
-                    }
-                }
+            // Smooth scroll to element
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
             });
 
-            // Scroll animations
+            // Update URL
+            try {
+                if (history.pushState) {
+                    history.pushState(null, null, targetId);
+                } else {
+                    window.location.hash = targetId;
+                }
+            } catch (e) {
+                console.warn('Could not update URL:', e);
+            }
+        }
+
+        // Initialize on DOM load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle page load with hash
+            if (window.location.hash) {
+                setTimeout(() => {
+                    smoothScroll(window.location.hash);
+                }, 100);
+            }
+
+            // Initialize animations for sections
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -1318,24 +1588,13 @@
                 rootMargin: '0px 0px -50px 0px'
             });
 
-            // Initialize animations for sections
+            // Apply initial styles and observe sections
             document.querySelectorAll('section').forEach(section => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(20px)';
                 section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
                 observer.observe(section);
             });
-
-            // Handle initial page load with hash in URL
-            if (window.location.hash) {
-                const target = window.location.hash;
-                if (target !== '#') {
-                    // Small delay to ensure all elements are loaded
-                    setTimeout(() => {
-                        smoothScroll(target);
-                    }, 100);
-                }
-            }
         });
     </script>
 
